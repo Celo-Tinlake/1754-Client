@@ -8,9 +8,11 @@ import {
   ColorScheme,
   ColorSchemeProvider,
   MantineThemeOverride,
+  AppShell,
 } from '@mantine/core';
 import { NotificationsProvider } from '@mantine/notifications';
 import { Header } from '../components/Header/Header';
+import { Footer1754 } from '../components/Footer/Footer';
 
 const genTheme = (colorScheme: ColorScheme): MantineThemeOverride => ({
   colorScheme,
@@ -68,8 +70,9 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
       <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
         <MantineProvider theme={genTheme(colorScheme)} withGlobalStyles withNormalizeCSS>
           <NotificationsProvider>
-            <Header />
-            <Component {...pageProps} />
+            <AppShell header={<Header />} footer={<Footer1754 />} padding={0}>
+              <Component {...pageProps} />
+            </AppShell>
           </NotificationsProvider>
         </MantineProvider>
       </ColorSchemeProvider>
