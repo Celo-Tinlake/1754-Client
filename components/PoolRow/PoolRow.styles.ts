@@ -5,7 +5,7 @@ export default createStyles((theme) => ({
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    paddingRight: 15,
+    paddingRight: 10,
     paddingLeft: 10,
     paddingBottom: 15,
     paddingTop: 15,
