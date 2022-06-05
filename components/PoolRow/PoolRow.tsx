@@ -40,7 +40,7 @@ export default function PoolRow({
           </Text>
         </Grid>
       </Grid.Col>
-      <Grid.Col span={1}>
+      <Grid.Col xs={2} sm={1}>
         <Text
           className={clsx(
             classes.statusContainer,

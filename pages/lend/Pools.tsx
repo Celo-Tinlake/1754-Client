@@ -106,6 +106,15 @@ const dumbyPools: { [t in PoolType]: PoolRowProps[] } = {
   ],
 };
 
+const description = {
+  Senior: `Passively invest in a diversified portfolio of debt deployed across the highest performing
+  funds. Senior pool investors are protected by Junior pool capital in exchange for slightly
+  lower, more stable yield.`,
+  Junior: `Directly fund specific loans to earn higher APY, but bare more risk. Senior pool investors
+   receive their principal and interest back before the unior pool starts receiving its payments.
+   Junior pool investors typically enter into legal agreements with the borrowers.`,
+};
+
 export default function Pools({ type }: { type: PoolType }) {
   const { classes } = useStyles();
   const [customerType, setCustomerType] = useState<CustomerType>('Enterprise');
@@ -127,17 +136,15 @@ export default function Pools({ type }: { type: PoolType }) {
           radius="md"
         />
       </Group>
-      <Text className={classes.description} pt={20} pb={50}>
-        Passively invest in a diversified portfolio of debt deployed across the highest performing
-        funds. Senior pool investors are protected by Junior pool capital in exchange for slightly
-        lower, more stable yield
+      <Text className={classes.description} pt={20} pb={30}>
+        {description[type]}
       </Text>
       <GridLabels
         labels={[
-          { label: 'Pool', xs: 9, md: 5 },
-          { label: 'Status', span: 1, className: classes.right },
-          { label: 'Pool Size', span: 3, className: classes.right },
-          { label: 'Est. APY', span: 3, className: classes.right },
+          { label: 'Pool', xs: 10, md: 5 },
+          { label: 'Status', xs: 2, sm: 1, className: classes.right },
+          { label: 'Pool Size', xs: 3, md: 3, className: classes.right },
+          { label: 'Est. APY', xs: 3, md: 3, className: classes.right },
         ]}
         pl={20}
         pr={30}
