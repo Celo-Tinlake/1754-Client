@@ -1,7 +1,7 @@
 import { Grid, Text } from '@mantine/core';
 import clsx from 'clsx';
 import { useCallback } from 'react';
-import { useDeviceType, useIsMobile } from '../../hooks/useDeviceType';
+import { useDeviceType } from '../../hooks/useDeviceType';
 import { isEven } from '../../utils';
 import useStyles from './StatDisplay.styles';
 
@@ -27,7 +27,6 @@ export default function StatDisplay({ stats }: StatDisplayProps) {
         if (isEven(i)) objectClasses.push(classes.borderRight);
         if (i !== Math.floor(stats.length / 2)) objectClasses.push(classes.borderBottom);
       } else if (deviceType.match(/(mobile)/)) {
-        console.log(deviceType);
         objectClasses.push(classes.borderBottom);
       } else {
         objectClasses.push(classes.borderRight);

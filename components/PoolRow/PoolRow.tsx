@@ -42,22 +42,10 @@ export default function PoolRow({
         <Group align="center" p={0} spacing={0}>
           <Image src={imageUrl} height={60} width={60} radius="md" />
 
-          <Text size="lg" component="span" ml={10}>
+          <Text size={isMobile ? 'md' : 'lg'} component="span" ml={10}>
             {title}
             <Text color="dimmed">{caption}</Text>
           </Text>
-          {isMobile && (
-            <Text
-              className={clsx(
-                classes.statusContainer,
-                status === 'Open' && classes.statusContainerOpen,
-                status === 'Repaid' && classes.statusContainerRepaid
-              )}
-              ml="auto"
-            >
-              {status}
-            </Text>
-          )}
         </Group>
       </Grid.Col>
       {!isMobile && (
@@ -75,20 +63,40 @@ export default function PoolRow({
       )}
       <Grid.Col xs={3}>
         <Text className={classes.statText}>
-          {poolSize}
-          <Text component="span" className={classes.statLabel}>
-            {denomination}
-          </Text>
+          {isMobile && (
+            <Text className={clsx(classes.statLabel, classes.mobileLabel)}>Pool Size: </Text>
+          )}
+          <Group align="baseline" spacing={0} position="right">
+            {poolSize}
+            <Text component="span" className={classes.statLabel}>
+              {denomination}
+            </Text>
+          </Group>
         </Text>
       </Grid.Col>
       <Grid.Col xs={2}>
         <Text className={classes.statText}>
-          {`${(apy * 100).toFixed(2)}%`}
-          <Text component="span" className={classes.statLabel}>
-            {denomination}
-          </Text>
+          {isMobile && <Text className={clsx(classes.statLabel, classes.mobileLabel)}>APY: </Text>}
+          <Group align="baseline" spacing={0} position="right">
+            {`${(apy * 100).toFixed(2)}%`}
+            <Text component="span" className={classes.statLabel}>
+              {denomination}
+            </Text>
+          </Group>
         </Text>
       </Grid.Col>
+      {isMobile && (
+        <Text
+          className={clsx(
+            classes.statusContainer,
+            status === 'Open' && classes.statusContainerOpen,
+            status === 'Repaid' && classes.statusContainerRepaid
+          )}
+          ml="auto"
+        >
+          {status}
+        </Text>
+      )}
     </Grid>
   );
 }

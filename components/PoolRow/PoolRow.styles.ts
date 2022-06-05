@@ -29,6 +29,9 @@ export default createStyles((theme) => ({
     fontWeight: 600,
     fontSize: theme.fontSizes.xl,
     textAlign: 'right',
+    display: 'flex',
+    justifyContent: 'flex-end',
+    alignItems: 'center',
   },
   statLabel: {
     fontWeight: 300,
@@ -62,5 +65,10 @@ export default createStyles((theme) => ({
     backgroundColor: theme.colorScheme === 'dark' ? theme.colors.green[7] : theme.colors.green[2],
     borderColor: theme.colorScheme === 'dark' ? theme.colors.green[2] : theme.colors.green[7],
     color: theme.colorScheme === 'dark' ? theme.colors.green[2] : theme.colors.green[7],
+  },
+  mobileLabel: {
+    textAlign: 'left',
+    fontWeight: 600,
+    marginRight: 'auto',
   },
 }));

@@ -1,4 +1,4 @@
-import { Container, Group, MediaQuery, SegmentedControl, Text, Title } from '@mantine/core';
+import { Container, Group, SegmentedControl, Text, Title } from '@mantine/core';
 import { useMemo, useState } from 'react';
 import PoolRow from '../../components/PoolRow/PoolRow';
 import { GridLabels } from '../../components/ThemedComponents';
