@@ -63,9 +63,9 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
   return (
     <>
       <Head>
-        <title>Mantine next example</title>
+        <title>1754</title>
         <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
-        <link rel="shortcut icon" href="/assets/.svg" />
+        <link rel="shortcut icon" href="/assets/Logo.jpeg" />
       </Head>
       <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
         <MantineProvider theme={genTheme(colorScheme)} withGlobalStyles withNormalizeCSS>
