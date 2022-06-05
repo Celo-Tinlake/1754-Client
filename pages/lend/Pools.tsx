@@ -1,7 +1,8 @@
-import { Container, Group, SegmentedControl, Text, Title } from '@mantine/core';
+import { Container, Group, MediaQuery, SegmentedControl, Text, Title } from '@mantine/core';
 import { useMemo, useState } from 'react';
 import PoolRow from '../../components/PoolRow/PoolRow';
 import { GridLabels } from '../../components/ThemedComponents';
+import { useIsMobile } from '../../hooks/useDeviceType';
 import useStyles from './Lend.styles';
 
 type PoolType = 'Senior' | 'Junior';
@@ -117,6 +118,7 @@ const description = {
 
 export default function Pools({ type }: { type: PoolType }) {
   const { classes } = useStyles();
+  const isMobile = useIsMobile();
   const [customerType, setCustomerType] = useState<CustomerType>('Enterprise');
   const pools = useMemo(
     () => dumbyPools[type].filter(({ customerType: ct }) => ct === customerType),
@@ -139,16 +141,19 @@ export default function Pools({ type }: { type: PoolType }) {
       <Text className={classes.description} pt={20} pb={30}>
         {description[type]}
       </Text>
-      <GridLabels
-        labels={[
-          { label: 'Pool', xs: 10, md: 5 },
-          { label: 'Status', xs: 2, sm: 1, className: classes.right },
-          { label: 'Pool Size', xs: 3, md: 3, className: classes.right },
-          { label: 'Est. APY', xs: 3, md: 3, className: classes.right },
-        ]}
-        pl={20}
-        pr={30}
-      />
+      {!isMobile && (
+        <GridLabels
+          labels={[
+            { label: 'Pool', xs: 5 },
+            { label: 'Status', xs: 2, sm: 1, className: classes.right },
+            { label: 'Pool Size', xs: 3, className: classes.right },
+            { label: 'Est. APY', xs: 2, className: classes.right },
+          ]}
+          pl={20}
+          pr={30}
+          grow
+        />
+      )}
       {pools.map((pool) => (
         <PoolRow {...pool} />
       ))}

@@ -16,6 +16,11 @@ export default createStyles((theme) => ({
     borderRightColor: theme.white,
     borderRightStyle: 'ridge',
   },
+  borderBottom: {
+    borderBottomWidth: 1.5,
+    borderBottomColor: theme.white,
+    borderBottomStyle: 'ridge',
+  },
   text: {
     fontSize: theme.fontSizes.lg,
   },

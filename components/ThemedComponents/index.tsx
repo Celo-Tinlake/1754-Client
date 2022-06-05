@@ -24,6 +24,7 @@ export const GridLabels = ({
   }[];
   pl: number;
   pr: number;
+  grow?: boolean;
 }) => {
   const { classes } = useStyles();
   return (
