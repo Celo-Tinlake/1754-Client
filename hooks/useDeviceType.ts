@@ -1,4 +1,4 @@
-import { useMediaQuery, useViewportSize } from '@mantine/hooks';
+import { useMediaQuery } from '@mantine/hooks';
 
 type DeviceType = 'mobile' | 'tablet' | 'desktop';
 type Orientation = 'Portrait' | 'Landscape';
@@ -14,9 +14,19 @@ const breakpoints: { minWidth: number; device: DeviceAndOrientation }[] = [
 ];
 
 export function useDeviceType(): DeviceAndOrientation {
-  const { width } = useViewportSize();
-
-  return breakpoints.filter(({ minWidth }) => width >= minWidth).at(-1)?.device ?? 'mobilePortrait';
+  const isMobilePortrait = useMediaQuery('(min-width: 320px)', false);
+  const isMobileLandscape = useMediaQuery('(min-width: 577px)', false);
+  const isTabletPortrait = useMediaQuery('(min-width: 641px)', false);
+  const isTabletLandscape = useMediaQuery('(min-width: 961px)', false);
+  const isDesktop = useMediaQuery('(min-width: 1025px)', false);
+  const i = [
+    isMobilePortrait,
+    isMobileLandscape,
+    isTabletPortrait,
+    isTabletLandscape,
+    isDesktop,
+  ].filter((el) => el).length;
+  return breakpoints[Math.max(0, i - 1)].device;
 }
 
 export const useIsMobile = () => useMediaQuery('(max-width: 640px)', false);
