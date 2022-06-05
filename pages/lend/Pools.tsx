@@ -1,4 +1,4 @@
-import { Container, Group, SegmentedControl, Tabs, Text, Title } from '@mantine/core';
+import { Container, Group, SegmentedControl, Text, Title } from '@mantine/core';
 import { useMemo, useState } from 'react';
 import PoolRow from '../../components/PoolRow/PoolRow';
 import { GridLabels } from '../../components/ThemedComponents';
@@ -119,7 +119,7 @@ export default function Pools({ type }: { type: PoolType }) {
       <Group position="apart">
         <Title order={3} className={classes.purpleText}>{`${type} Lending Pools`}</Title>
         <SegmentedControl
-          onChange={setCustomerType}
+          onChange={setCustomerType as (value: string) => void}
           data={[
             { value: 'Enterprise', label: 'Enterprise' },
             { value: 'Consumer', label: 'Consumer' },

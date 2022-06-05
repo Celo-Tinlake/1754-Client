@@ -1,6 +1,5 @@
 import { Anchor, Container, Group, Title } from '@mantine/core';
 import StatDisplay from '../../components/StatDisplay/StatDisplay';
-import { RowBetween } from '../../components/ThemedComponents';
 import useStyles from './Lend.styles';
 
 const dummyData = [

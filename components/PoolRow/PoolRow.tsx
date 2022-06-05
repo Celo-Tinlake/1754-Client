@@ -1,4 +1,4 @@
-import { Grid, Image, Text, Title } from '@mantine/core';
+import { Grid, Image, Text } from '@mantine/core';
 import clsx from 'clsx';
 import { useRouter } from 'next/router';
 import useStyles from './PoolRow.styles';

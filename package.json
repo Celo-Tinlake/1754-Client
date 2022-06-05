@@ -9,7 +9,7 @@
     "start": "next start",
     "typecheck": "tsc --noEmit",
     "export": "next build && next export",
-    "lint": "next lint",
+    "lint": "next lint --fix",
     "jest": "jest",
     "jest:watch": "jest --watch",
     "prettier:check": "prettier --check \"**/*.{ts,tsx}\"",

@@ -3,14 +3,7 @@ import { useState } from 'react';
 import { AppProps } from 'next/app';
 import { getCookie, setCookies } from 'cookies-next';
 import Head from 'next/head';
-import {
-  MantineProvider,
-  ColorScheme,
-  ColorSchemeProvider,
-  AppShell,
-  Global,
-  ContainerStylesParams,
-} from '@mantine/core';
+import { MantineProvider, ColorScheme, ColorSchemeProvider } from '@mantine/core';
 import { NotificationsProvider } from '@mantine/notifications';
 import { genTheme } from './_theme';
 import { Header } from '../components/Header/Header';
