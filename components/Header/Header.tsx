@@ -37,7 +37,7 @@ function Hamburger({ children }: { children: JSX.Element[] }) {
   return (
     <>
       <Burger opened={showMenu} onClick={() => toggleMenu()} />
-      <Drawer opened={showMenu} onClose={() => toggleMenu()} zIndex={999}>
+      <Drawer opened={showMenu} onClose={() => toggleMenu()} zIndex={999} position="right">
         <Stack pl={30}>{children}</Stack>
       </Drawer>
     </>
