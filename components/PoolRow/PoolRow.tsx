@@ -38,7 +38,7 @@ export default function PoolRow({
       grow
       columns={12}
     >
-      <Grid.Col xs={5}>
+      <Grid.Col xs={5} className={classes.poolTitle}>
         <Group align="center" p={0} spacing={0}>
           <Image src={imageUrl} height={60} width={60} radius="md" />
 

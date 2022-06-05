@@ -61,7 +61,7 @@ export function Header() {
   return (
     <Container fluid className={classes.container}>
       <Group pl={0}>
-        <Image src="/assets/Logo.jpeg" height={60} radius="md" />
+        <Image src="/assets/Logo.jpeg" height={60} width={60} radius="md" />
         <Title className={classes.title}>1754</Title>
       </Group>
       <Group>

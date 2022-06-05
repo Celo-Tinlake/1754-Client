@@ -5,8 +5,8 @@ export default createStyles((theme) => ({
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    paddingRight: 30,
-    paddingLeft: 20,
+    paddingRight: 15,
+    paddingLeft: 10,
     paddingBottom: 15,
     paddingTop: 15,
     alignItems: 'center',
@@ -55,6 +55,11 @@ export default createStyles((theme) => ({
     color: theme.colorScheme === 'dark' ? theme.colors.gray[2] : theme.colors.gray[8],
     fontSize: theme.fontSizes.lg,
     fontWeight: 500,
+    '@media (max-width: 576px)': {
+      width: 60,
+      height: 30,
+      fontSize: theme.fontSizes.sm,
+    },
   },
   statusContainerOpen: {
     backgroundColor: theme.colors[theme.primaryColor][0],
@@ -70,5 +75,13 @@ export default createStyles((theme) => ({
     textAlign: 'left',
     fontWeight: 600,
     marginRight: 'auto',
+  },
+  poolTitle: {
+    '@media (max-width: 576px)': {
+      borderBottomStyle: 'groove',
+      borderWidth: 0.5,
+      borderBottomColor: theme.colorScheme === 'dark' ? theme.colors.gray[2] : theme.colors.gray[7],
+      marginBottom: 15,
+    },
   },
 }));
