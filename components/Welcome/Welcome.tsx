@@ -1,25 +1,21 @@
-import { Title, Text, Anchor } from '@mantine/core';
+import { Title, Text, Anchor, useMantineTheme } from '@mantine/core';
 import useStyles from './Welcome.styles';
 
 export function Welcome() {
   const { classes } = useStyles();
-
+  const theme = useMantineTheme();
   return (
     <>
       <Title className={classes.title} align="center" mt={100}>
-        Welcome to{' '}
-        <Text inherit variant="gradient" component="span">
-          Mantine
+        <Text
+          inherit
+          variant="gradient"
+          component="span"
+          gradient={{ from: theme.colors.purple[9], to: theme.colors.purple[0], deg: 90 }}
+        >
+          1754 Factory
         </Text>
       </Title>
-      <Text color="dimmed" align="center" size="lg" sx={{ maxWidth: 580 }} mx="auto" mt="xl">
-        This starter Next.js project includes a minimal setup for server side rendering, if you want
-        to learn more on Mantine + Next.js integration follow{' '}
-        <Anchor href="https://mantine.dev/theming/next/" size="lg">
-          this guide
-        </Anchor>
-        . To get started edit index.tsx file.
-      </Text>
     </>
   );
 }

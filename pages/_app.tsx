@@ -3,9 +3,17 @@ import { useState } from 'react';
 import { AppProps } from 'next/app';
 import { getCookie, setCookies } from 'cookies-next';
 import Head from 'next/head';
-import { MantineProvider, ColorScheme, ColorSchemeProvider } from '@mantine/core';
+import {
+  MantineProvider,
+  ColorScheme,
+  ColorSchemeProvider,
+  AppShell,
+  Global,
+  ContainerStylesParams,
+} from '@mantine/core';
 import { NotificationsProvider } from '@mantine/notifications';
 import { genTheme } from './_theme';
+import { Header } from '../components/Header/Header';
 
 export default function App(props: AppProps & { colorScheme: ColorScheme }) {
   const { Component, pageProps } = props;
@@ -22,12 +30,12 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
       <Head>
         <title>Mantine next example</title>
         <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
-        <link rel="shortcut icon" href="/favicon.svg" />
+        <link rel="shortcut icon" href="/assets/.svg" />
       </Head>
-
       <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
         <MantineProvider theme={genTheme(colorScheme)} withGlobalStyles withNormalizeCSS>
           <NotificationsProvider>
+            <Header />
             <Component {...pageProps} />
           </NotificationsProvider>
         </MantineProvider>

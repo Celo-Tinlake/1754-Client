@@ -1,4 +1,4 @@
-import { ColorScheme, MantineThemeOverride } from '@mantine/core';
+import { ColorScheme, MantineColor, MantineThemeColors, MantineThemeOverride } from '@mantine/core';
 
 export const genTheme = (colorScheme: ColorScheme): MantineThemeOverride => ({
   colorScheme,
@@ -27,7 +27,11 @@ export const genTheme = (colorScheme: ColorScheme): MantineThemeOverride => ({
       '#153725',
       '#07120c',
     ],
+    'background-transparent': [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map(
+      (n) => `hsla(0, 0%, 0%, 0.${n})`
+    ) as [string, string, string, string, string, string, string, string, string, string],
   },
   primaryColor: 'purple',
   primaryShade: 5,
+  fontFamily: 'Avenir Next',
 });
