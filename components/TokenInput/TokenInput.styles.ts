@@ -1,10 +1,19 @@
 import { createStyles } from '@mantine/core';
 
 export default createStyles((theme) => ({
+  outer: {
+    position: 'relative',
+  },
+  balance: {
+    position: 'absolute',
+    right: 10,
+    top: -20,
+  },
   container: {
     // paddingTop: 0,
     // paddingBottom: 0,
     // display: 'flex',
+    marginTop: 20,
     background: theme.colorScheme === 'dark' ? theme.colors.blue[9] : theme.colors.blue[0],
     borderColor: theme.colors.blue[5],
     borderWidth: 2,
@@ -14,8 +23,7 @@ export default createStyles((theme) => ({
     padding: '1rem',
     paddingTop: '0.5rem',
     paddingBottom: '0.5rem',
-    width: '30VW',
-    minWidth: 300,
+    width: '400px',
     position: 'relative',
   },
   item: {

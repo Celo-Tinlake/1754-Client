@@ -17,12 +17,12 @@ export interface PoolRowProps {
   type: PoolType;
 }
 
-export const dumbyImage = 'https://avatars.githubusercontent.com/u/106453086?s=200&v=4';
+export const dumbyImage = '/assets/Logo.jpeg';
 
 export const dumbyPools: { [t in PoolType]: PoolRowProps[] } = {
   Senior: [
     {
-      address: '0x4653251486a57f90Ee89F9f34E098b9218659b83',
+      address: '0xFCa5Bb3732185AE6AaFC65aD8C9A4fBFf21DbaaD',
       poolId: 'LAF',
       imageUrl: dumbyImage,
       customerType: 'Enterprise',
@@ -36,7 +36,7 @@ export const dumbyPools: { [t in PoolType]: PoolRowProps[] } = {
       type: 'Senior',
     },
     {
-      address: '0x4653251486a57f90Ee89F9f34E098b9218659b83',
+      address: '0xFCa5Bb3732185AE6AaFC65aD8C9A4fBFf21DbaaD',
       poolId: 'LAF',
       imageUrl: dumbyImage,
       customerType: 'Consumer',
@@ -50,7 +50,7 @@ export const dumbyPools: { [t in PoolType]: PoolRowProps[] } = {
       type: 'Senior',
     },
     {
-      address: '0x4653251486a57f90Ee89F9f34E098b9218659b83',
+      address: '0xFCa5Bb3732185AE6AaFC65aD8C9A4fBFf21DbaaD',
       poolId: 'LAF',
       imageUrl: dumbyImage,
       customerType: 'Consumer',
@@ -66,7 +66,7 @@ export const dumbyPools: { [t in PoolType]: PoolRowProps[] } = {
   ],
   Junior: [
     {
-      address: '0x72662E4da74278430123cE51405c1e7A1B87C294',
+      address: '0x3489745eff9525CCC3d8c648102FE2cf3485e228',
       poolId: 'AIE',
       imageUrl: dumbyImage,
       customerType: 'Enterprise',
@@ -80,7 +80,7 @@ export const dumbyPools: { [t in PoolType]: PoolRowProps[] } = {
       type: 'Junior',
     },
     {
-      address: '0x72662E4da74278430123cE51405c1e7A1B87C294',
+      address: '0x3489745eff9525CCC3d8c648102FE2cf3485e228',
       poolId: 'AIE',
       imageUrl: dumbyImage,
       customerType: 'Enterprise',
@@ -94,7 +94,7 @@ export const dumbyPools: { [t in PoolType]: PoolRowProps[] } = {
       type: 'Junior',
     },
     {
-      address: '0x72662E4da74278430123cE51405c1e7A1B87C294',
+      address: '0x3489745eff9525CCC3d8c648102FE2cf3485e228',
       poolId: 'AIE',
       imageUrl: dumbyImage,
       customerType: 'Enterprise',
@@ -108,7 +108,7 @@ export const dumbyPools: { [t in PoolType]: PoolRowProps[] } = {
       type: 'Junior',
     },
     {
-      address: '0x72662E4da74278430123cE51405c1e7A1B87C294',
+      address: '0x3489745eff9525CCC3d8c648102FE2cf3485e228',
       poolId: 'AIE',
       imageUrl: dumbyImage,
       customerType: 'Enterprise',

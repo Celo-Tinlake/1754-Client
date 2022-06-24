@@ -1,7 +1,7 @@
 import { ChainId } from '@ubeswap/sdk';
 
 export const MicroLoanFactoryAddress = {
-  [ChainId.ALFAJORES]: '0xa8d297D643a11cE83b432e87eEBce6bee0fd2bAb',
+  [ChainId.ALFAJORES]: '0x1B25157F05B25438441bF7CDe38A95A55ccf8E50',
   [ChainId.MAINNET]: '',
   [ChainId.BAKLAVA]: '',
 };

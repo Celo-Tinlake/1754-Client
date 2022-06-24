@@ -1,3 +1,4 @@
+import { Token } from '@dahlia-labs/token-utils';
 import {
   Card,
   Center,
@@ -10,11 +11,11 @@ import {
   Text,
   TextInput,
 } from '@mantine/core';
-import { Token } from '@ubeswap/sdk';
 import clsx from 'clsx';
 import { useCallback, useMemo } from 'react';
 import { CUSD } from '../../constants/addresses';
 import { useTokenBalance } from '../../hooks/useTokenBalance';
+import { useCusd } from '../../hooks/useTokens';
 import { useWeb3Context } from '../../hooks/web3';
 import useStyles from './TokenInput.styles';
 
@@ -44,7 +45,14 @@ export default function TokenInput({
   const { classes } = useStyles();
   const { chainID, address } = useWeb3Context();
   const token = useMemo(
-    () => new Token(chainID, tokenAddress, 18, getTokenSymbol(tokenAddress)),
+    () =>
+      new Token({
+        chainId: chainID,
+        address: tokenAddress,
+        decimals: 18,
+        symbol: getTokenSymbol(tokenAddress),
+        name: '',
+      }),
     [chainID, tokenAddress]
   );
 
@@ -58,29 +66,41 @@ export default function TokenInput({
     []
   );
 
-  // const balance = useTokenBalance(token, address);
+  const balance = useTokenBalance(token, address);
   return (
-    <TextInput
-      label={label ?? 'Input an amount'}
-      className={clsx(classes.textInputStyle, classes.container)}
-      variant="unstyled"
-      styles={{
-        label: { padding: 0 },
-        input: { fontSize: 30, lineHeight: 1000, maxWidth: 200, cursor: disabled && 'not-allowed' },
-        root: { padding: 0, width: '60%', margin: 0 },
-      }}
-      placeholder="0.00"
-      value={value}
-      onChange={(e) => {
-        if (e.target.value.match(/^[0-9]*.[0-9]*$/) && onChange) {
-          onChange(e.target.value);
-        } else if (e.target.value.length === 0 && onChange) {
-          onChange(undefined);
-        }
-      }}
-      height={80}
-      rightSection={<Right />}
-      rightSectionWidth="50%"
-    />
+    <div className={classes.outer}>
+      {balance && balance.greaterThan('0') && (
+        <Text className={classes.balance} size="lg" color="dimmed">
+          {`Balance: ${balance?.toFixed(2)}`}
+        </Text>
+      )}
+      <TextInput
+        label={label ?? 'Input an amount'}
+        className={clsx(classes.textInputStyle, classes.container)}
+        variant="unstyled"
+        styles={{
+          label: { padding: 0 },
+          input: {
+            fontSize: 30,
+            lineHeight: 1000,
+            maxWidth: 200,
+            cursor: disabled && 'not-allowed',
+          },
+          root: { padding: 0, width: '60%', margin: 0 },
+        }}
+        placeholder="0.00"
+        value={value}
+        onChange={(e) => {
+          if (e.target.value.match(/^[0-9]*.[0-9]*$/) && onChange) {
+            onChange(e.target.value);
+          } else if (e.target.value.length === 0 && onChange) {
+            onChange(undefined);
+          }
+        }}
+        height={80}
+        rightSection={<Right />}
+        rightSectionWidth="50%"
+      />
+    </div>
   );
 }

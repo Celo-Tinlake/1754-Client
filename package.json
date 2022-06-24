@@ -25,6 +25,7 @@
     "@celo/contractkit": "^2.0.0",
     "@celo/wallet-remote": "^2.0.0",
     "@dahlia-labs/celo-contrib": "^0.5.7",
+    "@dahlia-labs/celo-tokens": "^0.5.7",
     "@dahlia-labs/token-utils": "^0.5.7",
     "@ensdomains/ensjs": "^2.1.0",
     "@ethersproject/providers": "^5.6.8",
@@ -48,6 +49,7 @@
     "react": "18.1.0",
     "react-dom": "18.1.0",
     "react-query": "^3.39.1",
+    "tabler-icons-react": "^1.51.0",
     "typechain": "^8.1.0"
   },
   "devDependencies": {
