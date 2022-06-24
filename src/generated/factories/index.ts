@@ -4,3 +4,4 @@
 export * as microLoans from "./micro_loans";
 export { Erc20__factory } from "./Erc20__factory";
 export { Erc20_bytes32__factory } from "./Erc20_bytes32__factory";
+export { Multicall2__factory } from "./Multicall2__factory";
