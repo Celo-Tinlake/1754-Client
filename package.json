@@ -36,6 +36,7 @@
     "@mantine/prism": "4.2.2",
     "@modulz/radix-icons": "^4.0.0",
     "@next/bundle-analyzer": "^12.1.4",
+    "@node-fi/default-token-list": "^4.1.81",
     "@typechain/ethers-v5": "^10.1.0",
     "@ubeswap/sdk": "^2.1.2",
     "clsx": "^1.1.1",

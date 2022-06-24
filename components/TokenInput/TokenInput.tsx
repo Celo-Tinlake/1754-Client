@@ -3,16 +3,16 @@ import {
   Center,
   Container,
   Group,
-  Image,
   Input,
   NumberInput,
   Stack,
+  Image,
   Text,
   TextInput,
 } from '@mantine/core';
 import { Token } from '@ubeswap/sdk';
 import clsx from 'clsx';
-import { useMemo } from 'react';
+import { useCallback, useMemo } from 'react';
 import { CUSD } from '../../constants/addresses';
 import { useTokenBalance } from '../../hooks/useTokenBalance';
 import { useWeb3Context } from '../../hooks/web3';
@@ -28,8 +28,8 @@ interface TokenInputProps {
 
 const getTokenIconUrl = (address: string) =>
   address.toLowerCase() === CUSD.toLowerCase()
-    ? 'https://raw.githubusercontent.com/Node-Fi/default-tokenAddress-list/master/assets/asset_cUSD.png'
-    : 'https://raw.githubusercontent.com/Node-Fi/default-tokenAddress-list/master/assets/asset_FACT.png';
+    ? 'https://raw.githubusercontent.com/Node-Fi/default-token-list/master/assets/asset_cUSD.png'
+    : 'https://raw.githubusercontent.com/Node-Fi/default-token-list/master/assets/asset_FACT.png';
 
 const getTokenSymbol = (address: string) =>
   address.toLowerCase() === CUSD.toLowerCase() ? 'cUSD' : 'FACT';
@@ -48,41 +48,39 @@ export default function TokenInput({
     [chainID, tokenAddress]
   );
 
-  const balance = useTokenBalance(token, address);
-  return (
-    <div>
-      <Group className={classes.container} mt={15}>
-        <div className={classes.item}>
-          <Text size="lg" weight={400}>
-            {label ?? 'Input an amount'}
-          </Text>
-          <TextInput
-            className={classes.textInputStyle}
-            variant="unstyled"
-            styles={{
-              input: { fontSize: 30, lineHeight: 1000, maxWidth: 200 },
-              root: { padding: 0, width: '60%' },
-            }}
-            placeholder="0.00"
-            value={value}
-            onChange={(e) => {
-              if (e.target.value.match(/^[0-9]*.[0-9]*$/) && onChange) {
-                onChange(e.target.value);
-              } else if (e.target.value.length === 0 && onChange) {
-                onChange(undefined);
-              }
-            }}
-            height={80}
-          />
-        </div>
-        <Group position="center" spacing={5} className={clsx(classes.leftBorder, classes.item)}>
-          <Image width={50} height={50} radius="xl" src={getTokenIconUrl(tokenAddress)} />
-          {getTokenSymbol(tokenAddress)}
-        </Group>
+  const Right = useCallback(
+    () => (
+      <Group position="center" spacing={5} className={clsx(classes.rightItem)}>
+        <Image width={50} height={50} radius="xl" src={getTokenIconUrl(tokenAddress)} />
+        <Text>{getTokenSymbol(tokenAddress)}</Text>
       </Group>
-      {balance && balance.greaterThan('0') && (
-        <Text color="dimmed" size="md" ml={'1rem'}>{`Balance: ${balance.toFixed(2)}`}</Text>
-      )}
-    </div>
+    ),
+    []
+  );
+
+  // const balance = useTokenBalance(token, address);
+  return (
+    <TextInput
+      label={label ?? 'Input an amount'}
+      className={clsx(classes.textInputStyle, classes.container)}
+      variant="unstyled"
+      styles={{
+        label: { padding: 0 },
+        input: { fontSize: 30, lineHeight: 1000, maxWidth: 200, cursor: disabled && 'not-allowed' },
+        root: { padding: 0, width: '60%', margin: 0 },
+      }}
+      placeholder="0.00"
+      value={value}
+      onChange={(e) => {
+        if (e.target.value.match(/^[0-9]*.[0-9]*$/) && onChange) {
+          onChange(e.target.value);
+        } else if (e.target.value.length === 0 && onChange) {
+          onChange(undefined);
+        }
+      }}
+      height={80}
+      rightSection={<Right />}
+      rightSectionWidth="50%"
+    />
   );
 }

@@ -21,6 +21,7 @@ export default function LendToPool({ address }: { address: string }) {
           tokenAddress={poolInfo?.seniorTrancheToken ?? poolInfo?.juniorTrancheToken ?? ''}
           value={amount && amount.length > 0 ? (parseFloat(amount) * 0.985736).toFixed(2) : '0.00'}
           label="You will receive"
+          disabled
         />
         <Button radius="md" disabled={!amount} size="xl">
           Deposit
