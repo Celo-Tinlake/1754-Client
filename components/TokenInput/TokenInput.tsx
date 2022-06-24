@@ -29,11 +29,11 @@ interface TokenInputProps {
 
 const getTokenIconUrl = (address: string) =>
   address.toLowerCase() === CUSD.toLowerCase()
-    ? 'https://raw.githubusercontent.com/Node-Fi/default-token-list/master/assets/asset_cUSD.png'
+    ? 'https://raw.githubusercontent.com/Node-Fi/default-token-list/master/assets/asset_cREAL.png'
     : 'https://raw.githubusercontent.com/Node-Fi/default-token-list/master/assets/asset_FACT.png';
 
 const getTokenSymbol = (address: string) =>
-  address.toLowerCase() === CUSD.toLowerCase() ? 'cUSD' : 'FACT';
+  address.toLowerCase() === CUSD.toLowerCase() ? 'cREAL' : 'FACT';
 
 export default function TokenInput({
   tokenAddress,
