@@ -5,11 +5,11 @@ import { showNotification, updateNotification } from '@mantine/notifications';
 import { useCallback, useMemo } from 'react';
 import invariant from 'tiny-invariant';
 
+import { Loader } from '@mantine/core';
+import { Check } from 'tabler-icons-react';
 import { parseFunctionReturn } from '../utils/parseFunctionReturn';
 import { useBlockQuery, Call } from './useBlockQuery';
 import { useTokenContract } from './useContract';
-import { Loader } from '@mantine/core';
-import { Check } from 'tabler-icons-react';
 
 export const useTokenAllowance = (
   token: Token | null | undefined,

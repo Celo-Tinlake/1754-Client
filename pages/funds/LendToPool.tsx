@@ -1,18 +1,17 @@
-import { Button, Container, Group, Loader, LoadingOverlay, Title } from '@mantine/core';
+import { Button, Container, Group, LoadingOverlay, Title } from '@mantine/core';
 import { ArrowRightIcon } from '@modulz/radix-icons';
 import { useCallback, useMemo, useState } from 'react';
+import { TokenAmount } from '@dahlia-labs/token-utils';
 import TokenInput from '../../components/TokenInput/TokenInput';
 import { CUSD } from '../../constants/addresses';
 import { useFundManager } from '../../hooks/useFundManager';
 import { useCusd } from '../../hooks/useTokens';
-import { TokenAmount } from '@dahlia-labs/token-utils';
 import { useApproval, useApprove } from '../../hooks/useApproval';
 import { useWeb3Context } from '../../hooks/web3';
 import { useFundManagerContract } from '../../hooks/useContract';
 import { executeTransaction } from '../../hooks/useTransactions';
 
 export default function LendToPool({ address }: { address: string }) {
-  const [isWithdraw, setIsWithdraw] = useState(false);
   const { data: poolInfo, isLoading } = useFundManager(address);
   const { address: wallet } = useWeb3Context();
   const [amount, setAmount] = useState<string | undefined>();

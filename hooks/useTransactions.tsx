@@ -17,7 +17,7 @@ export async function executeTransaction({ callback, ...details }: TransactionDe
     disallowClose: true,
     autoClose: false,
     icon: <Loader />,
-    position: 'bottom-left',
+    // position: 'bottom-left',
   });
   const res = await callback();
   updateNotification({
@@ -26,7 +26,7 @@ export async function executeTransaction({ callback, ...details }: TransactionDe
     message: 'Waiting for confirmations',
     disallowClose: true,
     autoClose: false,
-    position: 'bottom-left',
+    // position: 'bottom-left',
   });
   await res.wait();
   updateNotification({
@@ -36,7 +36,7 @@ export async function executeTransaction({ callback, ...details }: TransactionDe
     icon: <Check />,
     autoClose: true,
     loading: false,
-    position: 'bottom-left',
+    // position: 'bottom-left',
     onClick: () => window.open(`https://alfajores.celoscan.xyz/tx/${res.hash}`, '_blank'),
   });
   return res;

@@ -3,12 +3,11 @@ import clsx from 'clsx';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useCallback } from 'react';
+import { ChevronLeftIcon } from '@modulz/radix-icons';
 import PoolRow from '../../components/PoolRow/PoolRow';
 import { getPool } from '../lend/info';
 import useStyles from './Funds.styles';
-import { ChevronLeftIcon } from '@modulz/radix-icons';
 import LendToPool from './LendToPool';
-import TextBlurb from '../../components/TextBlurb/TextBlurb';
 import Profile from '../../components/Profile/Profile';
 import PortfolioBook from './PortfolioBook/PortfolioBook';
 
@@ -96,7 +95,7 @@ export default function FundPage() {
           <Text mt={15} size="xl" color="gray">
             Location: Berkeley, CA. USA
           </Text>
-          <PortfolioBook managerAddress={pool.address} />
+          <PortfolioBook />
         </Container>
       )}
     </>

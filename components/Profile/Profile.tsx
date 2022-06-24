@@ -1,5 +1,4 @@
 import { Image, Stack, Text, Title } from '@mantine/core';
-import useStyle from './Profile.styles';
 
 export default function Profile({
   first,

@@ -1,21 +1,9 @@
 import { Token } from '@dahlia-labs/token-utils';
-import {
-  Card,
-  Center,
-  Container,
-  Group,
-  Input,
-  NumberInput,
-  Stack,
-  Image,
-  Text,
-  TextInput,
-} from '@mantine/core';
+import { Group, Image, Text, TextInput } from '@mantine/core';
 import clsx from 'clsx';
 import { useCallback, useMemo } from 'react';
 import { CUSD } from '../../constants/addresses';
 import { useTokenBalance } from '../../hooks/useTokenBalance';
-import { useCusd } from '../../hooks/useTokens';
 import { useWeb3Context } from '../../hooks/web3';
 import useStyles from './TokenInput.styles';
 
@@ -84,7 +72,7 @@ export default function TokenInput({
             fontSize: 30,
             lineHeight: 1000,
             maxWidth: 200,
-            cursor: disabled && 'not-allowed',
+            cursor: disabled ? 'not-allowed' : 'text',
           },
           root: { padding: 0, width: '60%', margin: 0 },
         }}
@@ -99,7 +87,7 @@ export default function TokenInput({
         }}
         height={80}
         rightSection={<Right />}
-        rightSectionWidth="50%"
+        rightSectionWidth={150}
       />
     </div>
   );
