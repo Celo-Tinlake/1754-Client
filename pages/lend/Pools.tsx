@@ -3,7 +3,7 @@ import { useMemo, useState } from 'react';
 import PoolRow from '../../components/PoolRow/PoolRow';
 import { GridLabels } from '../../components/ThemedComponents';
 import { useIsMobile } from '../../hooks/useDeviceType';
-import { CustomerType, dumbyPools, PoolType } from './info';
+import { CustomerType, dumbyPools, PoolType } from '../../constants/info';
 import useStyles from './Lend.styles';
 
 const description = {

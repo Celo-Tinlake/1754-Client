@@ -1,6 +1,6 @@
 import { Stack, Table, Text, useMantineTheme } from '@mantine/core';
 import { useMemo } from 'react';
-import { dumbyPortfolioBooks } from './dumbyData';
+import { dumbyPortfolioBooks } from '../../../constants/dumbyData';
 
 export default function PortfolioBook() {
   const theme = useMantineTheme();

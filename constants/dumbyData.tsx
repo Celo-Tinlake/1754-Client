@@ -1,5 +1,5 @@
 import { Progress } from '@mantine/core';
-import { shortenAddress } from '../../../utils';
+import { shortenAddress } from '../utils';
 
 export const dumbyPortfolioBooks = [
   {

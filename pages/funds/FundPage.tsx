@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 import { useCallback } from 'react';
 import { ChevronLeftIcon } from '@modulz/radix-icons';
 import PoolRow from '../../components/PoolRow/PoolRow';
-import { getPool } from '../lend/info';
+import { getPool } from '../../constants/info';
 import useStyles from './Funds.styles';
 import LendToPool from './LendToPool';
 import Profile from '../../components/Profile/Profile';
