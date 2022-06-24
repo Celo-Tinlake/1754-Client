@@ -1,4 +1,4 @@
-import { Button, Group, Text } from '@mantine/core';
+import { Button, Group } from '@mantine/core';
 import { useWeb3Context } from '../../hooks/web3';
 import { shortenAddress } from '../../utils';
 import { ColorSchemeToggle } from '../ColorSchemeToggle/ColorSchemeToggle';
