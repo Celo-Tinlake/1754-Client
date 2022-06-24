@@ -39,6 +39,7 @@
     "@node-fi/default-token-list": "^4.1.81",
     "@typechain/ethers-v5": "^10.1.0",
     "@ubeswap/sdk": "^2.1.2",
+    "@uniswap/token-lists": "^1.0.0-beta.30",
     "clsx": "^1.1.1",
     "cookies-next": "^2.0.4",
     "dayjs": "^1.11.0",
