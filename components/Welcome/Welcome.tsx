@@ -15,6 +15,9 @@ export function Welcome() {
         >
           1754 Factory
         </Text>
+        <Text size="xl" weight={500}>
+          Last Mile Lending for Fintechs and Consumers in the Global South
+        </Text>
       </Title>
     </>
   );

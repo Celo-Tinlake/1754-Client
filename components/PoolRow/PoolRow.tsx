@@ -33,7 +33,7 @@ export default function PoolRow({
   return (
     <Grid
       className={classes.container}
-      onClick={() => router.push(`pools/${poolId}`)}
+      onClick={() => router.push(`funds?id=${poolId}`)}
       mb={20}
       grow
       columns={12}

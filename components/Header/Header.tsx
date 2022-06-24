@@ -1,4 +1,4 @@
-import { Title, Anchor, Container, Group, Image, Burger, Drawer, Stack } from '@mantine/core';
+import { Title, Anchor, Container, Group, Image, Burger, Drawer, Stack, Text } from '@mantine/core';
 import { useClickOutside, useToggle } from '@mantine/hooks';
 import clsx from 'clsx';
 import Link from 'next/link';
@@ -7,18 +7,18 @@ import { useIsMobile } from '../../hooks/useDeviceType';
 import useStyles from './Header.styles';
 import WalletConnectionGroup from './WalletConnectionGroup';
 
-const routes: [string, string][] = [
-  ['Home', '/'],
-  ['Lend', '/lend'],
-  ['Borrow', '/borrow'],
-  ['Insights', '/insights'],
-  ['Govern', '/govern'],
+const routes: [string, string, boolean][] = [
+  ['Home', '/', true],
+  ['Lend', '/lend', true],
+  ['Borrow', '/borrow', false],
+  ['Insights', '/insights', false],
+  ['Govern', '/govern', false],
 ];
 
-function NavLink({ name, path }: { name: string; path: string }) {
+function NavLink({ name, path, enabled }: { name: string; path: string; enabled?: boolean }) {
   const { classes } = useStyles();
   const router = useRouter();
-  return (
+  return enabled ? (
     <Link href={path} passHref>
       <Anchor
         className={clsx(classes.nav, router.route === path && classes.focused)}
@@ -27,6 +27,8 @@ function NavLink({ name, path }: { name: string; path: string }) {
         {name}
       </Anchor>
     </Link>
+  ) : (
+    <Text className={clsx(classes.nav, router.route === path && classes.focused)}>{name}</Text>
   );
 }
 
@@ -49,8 +51,8 @@ function Nav() {
   const Parent = isMobile ? Hamburger : Group;
   return (
     <Parent>
-      {routes.map(([name, path]) => (
-        <NavLink {...{ name, path }} key={`nav-${name}`} />
+      {routes.map(([name, path, enabled]) => (
+        <NavLink {...{ name, path, enabled }} key={`nav-${name}`} />
       ))}
     </Parent>
   );
