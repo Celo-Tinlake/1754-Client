@@ -6,6 +6,13 @@ export const dumbyPortfolioBooks = [
     address: shortenAddress('0x6c0d6Fba3bcdb224278474E8d524F19c6BB55850'),
     size: 'R$10.00',
     repaid: <Progress color="blue" label="" value={0} size="xl" />,
+    duration: '57 Days',
+    apr: '10%',
+  },
+  {
+    address: shortenAddress('0x25E9C21973125edAe21493e967060EC34eEe8CE9'),
+    size: 'R$10.00',
+    repaid: <Progress color="blue" label="15%" value={15} size="xl" />,
     duration: '35 Days',
     apr: '10%',
   },
